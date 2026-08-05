@@ -1,0 +1,23 @@
+run:
+  seeds: [42, 123, 256]
+  datasets: 10
+  scenarios: 500
+  runs_per_baseline: 3
+models:
+  intake: gpt-4o
+  triage: gpt-4o
+  safety: claude-sonnet-4
+  escalation: deepseek-r1
+  communication: gpt-4o
+  audit: gpt-4o
+generation:
+  temperature: 0.0
+  max_output_tokens: 4096
+safety:
+  escalation_threshold: 0.3
+  deescalation_requires_consensus: true
+evaluation:
+  alpha: 0.05
+  bootstrap_iterations: 10000
+  correction: holm
+  weighting: linear
